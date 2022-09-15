@@ -1,24 +1,29 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import BlogList from "../components/BlogList";
+import useFetch from "../useFetch";
 
 
 const Home = () => {
-    //let name="Mario"
-    const [name, setName] = useState("Mario")
 
-    const handleClick = (e)=>{
-        // console.log("hello, ninjas",e)
-        setName("Luigi")
-    }
-    const handleClickAgain = (name,e)=>{
-        console.log("hello, " + name, e)
-    }
+    // const handleDelete=(idToDelete)=>{
+    //     const newBlogs= blogs.filter((blog)=>blog.id!==idToDelete)
+    //     setBlogs(newBlogs)
+    // }
+
+
+    
+    //
+    const {data: blogs, isPending, error} = useFetch("http://localhost:8000/blogs")
 
     return ( 
         <div className="home">
-            <h2>Homepage</h2>
-            <p>{name}</p>
-            <button onClick={handleClick}>Click me</button>
-            <button onClick={(e)=>handleClickAgain("mariana",e)}>Click me again</button>
+            {/* <h2>Homepage</h2> */}
+            {isPending && <p>Loading...</p>}
+            {error && <p style={{color:"red"}}>{error}</p>}
+            {blogs && <BlogList blogs={blogs} title={"All Blogs"}  />}
+            {/* <BlogList blogs={blogs.filter((blog)=>blog.author==="mario")} title={"Mario's Blogs"} handleDelete={handleDelete} /> */}
+            {/* <p>{name}</p>
+            <button onClick={()=>setName("Luigi")}>Change name</button> */}
         </div>
      );
 }
