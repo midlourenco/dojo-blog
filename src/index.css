@@ -29,10 +29,23 @@
 .navbar a:hover {
   color: #f1356d;
 }
+.footer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 15px;
+}
 .content {
   /* max-width: 600px; */
-  margin: 40px auto;
+  margin: auto;
   padding: 20px;
+
+}
+.body {
+  background: #f1356d05;
+  /* opacity: 0.02; */
+  height: 85vh;
 }
 
 /* blog previews / list */
@@ -59,6 +72,8 @@
 .blog-details{
   max-width: 80%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .blog-details h2{
@@ -67,17 +82,24 @@
   margin-bottom: 10px;
 }
 
-.blog-details div{
+.blog-details .blog-content{
   margin: 20px 0;
   text-align: justify;
   text-justify: inter-word;
 }
-
-.blog-content {
-  text-align: justify;
-  text-justify: inter-word;
+.blog-details button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
   margin-top: 20px;
+  font-size: 18px;
+
 }
+
+
 
 /* create new blog form */
 .create {
