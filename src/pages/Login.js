@@ -3,23 +3,26 @@ import { useState } from "react"
 
 const Login = () => {
     //let name="Mario"
-    const [name, setName] = useState("Mario")
+    const [name, setName] = useState(true)
 
-    const handleClick = (e)=>{
-        // console.log("hello, ninjas",e)
-        setName("Luigi")
-
-    }
-    const handleClickAgain = (name,e)=>{
-        console.log("hello, " + name, e)
-    }
+    // const handleClick = (e)=>{
+    //     // console.log("hello, ninjas",e)
+    //     if(name){
+    //         setName("Mario")
+    //     }else{
+    //         setName("Yoshi")
+    //     }
+    // }
+    // const handleClickAgain = (name,e)=>{
+    //     console.log("hello, " + name, e)
+    // }
 
     return ( 
         <div className="login">
-            <h2>Bem-Vindo</h2>
-            <p> Olá, {name} </p>
-            <button onClick={handleClick}>Click me</button>
-            <button onClick={(e)=>handleClickAgain("mariana",e)}>Click me again</button>
+            <h2>Welcome</h2>
+            <p> Hello, {name ? "Mario" : "Yoshi"} </p>
+            <button onClick={()=>setName(!name)}>Change name</button>
+            {/* <button onClick={(e)=>handleClickAgain("mariana",e)}>Click me again</button> */}
         </div>
      );
 }
