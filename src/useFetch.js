@@ -7,8 +7,10 @@ const useFetch = (endpointURL) => {
 
    
     useEffect(()=>{
+        const abortCont = new AbortController();
+
         setTimeout(()=>{
-            fetch(endpointURL)
+            fetch(endpointURL, {signal: abortCont.signal})
             .then(response=>{
                 console.log(response)
                 if(!response.ok){
@@ -23,13 +25,20 @@ const useFetch = (endpointURL) => {
                 setError(null)
             })
             .catch((error)=>{
-                setIsPending(false)
-                setError(error.message)
+                if(error.name==="AbortError"){
+                    console.log("fetch aborted")
+                }else{
+                    setIsPending(false)
+                    setError(error.message)
+                    
+                }
                 
             })
           
             
         },1000)
+
+        return () => abortCont.abort();
     },[endpointURL]);
       
 
