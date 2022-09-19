@@ -1,8 +1,14 @@
-import {useQuery } from "react-query"
+import {useQuery, useMutation } from "react-query"
 import axios from "axios"
 
 const fetchSuperHeroes = ()=>{
     return  axios.get('http://localhost:4000/superheroes')
+}
+
+
+const addSuperHeroes=(newHero)=>{
+    return  axios.post('http://localhost:4000/superheroes',newHero)
+
 }
 
 function useSuperHeroesData(onSuccess,onError) {
@@ -14,9 +20,16 @@ function useSuperHeroesData(onSuccess,onError) {
             onSuccess, 
             onError,
         })
-    
-    
-    
+
+}
+
+
+export const useAddSuperHeroData =()=>{
+    return useMutation(addSuperHeroes)
+}
+
+export default useSuperHeroesData
+
         //várias opções que se podem passar dentro do terceiro argumento:
     // return useQuery(
     //     "super-heroes",
@@ -42,7 +55,3 @@ function useSuperHeroesData(onSuccess,onError) {
     //         // }
            
     //     })
-
-}
-
-export default useSuperHeroesData

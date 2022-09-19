@@ -46,6 +46,21 @@
       "id": 3,
       "name": "Wonder Woman New",
       "alterEgo": "Princess Diana"
+    },
+    {
+      "name": "novoHero",
+      "alterEgo": "NovoEgo",
+      "id": 4
+    },
+    {
+      "name": "fdf",
+      "alterEgo": "gds<",
+      "id": 5
+    },
+    {
+      "name": "ehe",
+      "alterEgo": "ooa",
+      "id": 6
     }
   ],
   "friends": [
@@ -71,7 +86,11 @@
   "channels": [
     {
       "id": "codevolution",
-      "courses": ["react", "vue", "angular"]
+      "courses": [
+        "react",
+        "vue",
+        "angular"
+      ]
     }
   ],
   "colors": [
