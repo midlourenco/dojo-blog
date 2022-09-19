@@ -14,9 +14,11 @@ import People from "./pages/People";
 import Superheroes from "./pages/Superheroes";
 import RQSuperHeroes from "./pages/RQSuperHeroes";
 import RQSuperHeroDetails from "./pages/RQSuperHeroDetails";
-import ParallelQueriesPage from "./pages/ParallelQueriesPage";
-import DynamicParallel from "./pages/DynamicParallel";
-import DependentQueries from "./pages/DependentQueries";
+import ParallelQueriesPage from "./pages/tutorial_options/ParallelQueriesPage";
+import DynamicParallel from "./pages/tutorial_options/DynamicParallel";
+import DependentQueries from "./pages/tutorial_options/DependentQueries";
+import PaginatedQueries from "./pages/tutorial_options/PaginatedQueries";
+import InfiniteQueries from "./pages/tutorial_options/InfiniteQueries";
 
 
 
@@ -41,7 +43,9 @@ function App() {
 
           <Route path='/rqdynamicparallel' element={<DynamicParallel heroIds={[1,3]} />} />
           <Route path='/rqdependent' element={<DependentQueries  email={"vishwas@example.com"} />} />
-          
+          <Route path='/rqpaginated' element={<PaginatedQueries  />} />
+          <Route path='/rqinfinite' element={<InfiniteQueries  />} />
+        
 
           <Route path={"/planets"} element={<Planets />} />
           <Route path={"/people"} element={<People />} />

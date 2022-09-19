@@ -1,4 +1,4 @@
-import {useQuery} from "react-query"
+import {useQuery } from "react-query"
 import axios from "axios"
 
 const fetchSuperHeroes = ()=>{
@@ -11,26 +11,37 @@ function useSuperHeroesData(onSuccess,onError) {
         "super-heroes",
         fetchSuperHeroes,
         {
-            // cacheTime:5000,
-            // staleTimxe: 0,\
-            // refetchOnMount:false,
-            // refetchOnMount:"always"
-            // refetchInterval: 2000,
-            // refetchIntervalInBackground: true,
-            // enabled:false,
-
-            //default:
-            // refetchOnMount: true,
-            // refetchOnWindowFocus:true,
-           
             onSuccess, 
             onError,
-            // select:(data)=>{
-            //     const superHeroNames=data.data.map((hero)=>hero.name)
-            //     return superHeroNames
-            // }
-           
         })
+    
+    
+    
+        //várias opções que se podem passar dentro do terceiro argumento:
+    // return useQuery(
+    //     "super-heroes",
+    //     fetchSuperHeroes,
+    //     {
+    //         // cacheTime:5000,
+    //         // staleTimxe: 0,\
+    //         // refetchOnMount:false,
+    //         // refetchOnMount:"always"
+    //         // refetchInterval: 2000,
+    //         // refetchIntervalInBackground: true,
+    //         // enabled:false,
+
+    //         //default:
+    //         // refetchOnMount: true,
+    //         // refetchOnWindowFocus:true,
+           
+    //         onSuccess, 
+    //         onError,
+    //         // select:(data)=>{
+    //         //     const superHeroNames=data.data.map((hero)=>hero.name)
+    //         //     return superHeroNames
+    //         // }
+           
+    //     })
 
 }
 

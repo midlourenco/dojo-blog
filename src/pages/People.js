@@ -5,9 +5,9 @@ import {useInfiniteQuery, useQuery} from "react-query"
 
 
 
-const fetchPeople = async ({pageParam=1})=>{
-    // const [_key, page]=queryKey
-    const response = await fetch(`https://swapi.dev/api/people/?page=${pageParam}`)
+const fetchPeople = async ({queryKey})=>{
+    const pageNumber=queryKey[1]
+    const response = await fetch(`https://swapi.dev/api/people/?page=${pageNumber}`)
     console.log("dentro do fetch")
     return response.json();
   }
@@ -34,10 +34,7 @@ const People = () => {
         data, 
         isFetching,
         status,
-    } = useQuery(['people', page], ()=>fetchPeople(page), {
-        getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
-        getPreviousPageParam: (firstPage, pages) => firstPage.prevCursor,
-    }); 
+    } = useQuery(['people', page], fetchPeople); 
     
     console.log(data)
     
@@ -62,7 +59,7 @@ const People = () => {
             <button 
             // onClick={() => fetchNextPage()} 
             // disabled={!hasNextPage}
-             onClick={()=>setPage(old=>(!data.next? old : old+1))}
+             onClick={()=>setPage(old=>(!data.next? old+1 : old+1))}
              disabled={page===!data.next}
             // onClick={fetchNextPage}
             >
