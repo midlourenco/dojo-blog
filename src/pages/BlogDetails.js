@@ -3,11 +3,11 @@ import useFetch from "../useFetch";
 
 function BlogDetails() {
     const { id } = useParams()
-    const {data: blog, error, isPending} = useFetch("http://localhost:8000/blogs/"+id)
+    const {data: blog, error, isPending} = useFetch("http://localhost:4000/blogs/"+id)
     const navigate = useNavigate();
 
     const handleDeleted=()=>{
-        fetch("http://localhost:8000/blogs/" + id,{
+        fetch("http://localhost:4000/blogs/" + id,{
             method:"DELETE",
         }).then(()=>{
             console.log(" blog deleted")

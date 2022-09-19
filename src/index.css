@@ -5,6 +5,9 @@
 * {
   margin: 0;
   font-family: "Quicksand";
+  /* color: #333; */
+}
+body{
   color: #333;
 }
 .navbar {
@@ -45,25 +48,25 @@
 .body {
   background: #f1356d05;
   /* opacity: 0.02; */
-  height: 85vh;
+  /* height: 85vh; */
 }
 
 /* blog previews / list */
-.blog-preview {
+.blog-preview, .planet-preview,  .people-preview{
   padding: 10px 16px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
 }
-.blog-preview:hover {
+.blog-preview:hover, .planet-preview:hover,  .people-preview:hover{
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 }
-.blog-preview h2 {
+.blog-preview h2, .planet-preview h2, .people-preview h2{
   font-size: 20px;
   color: #f1356d;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
-.blog-preview a {
+.blog-preview a , .planet-preview a,  .people-preview a{
   text-decoration: none;
 }
 
@@ -76,7 +79,7 @@
   flex-direction: column;
 }
 
-.blog-details h2{
+.blog-details h2 {
   font-size: 20px;
   color:#f1356d;
   margin-bottom: 10px;
@@ -163,4 +166,33 @@
   cursor: pointer;
   margin-top: 20px;
   font-size: 16px;
+}
+
+
+.list-filter-options{
+  display: flex;
+  flex-direction: row;
+  vertical-align: center;
+  align-items: center;
+  margin: 15px;
+}
+.list-filter-options button, .planets button{
+  color: #f1356d;
+  border: 1px solid #f1356d;
+  background-color: white;
+  padding: 6px 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  margin: 0 0 10px 10px;
+  font-size: 12px;
+}
+#remove-filter-btn  {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 6px 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  margin: 0 0 0 10px;
+  font-size: 12px;
 }

@@ -6,6 +6,10 @@ const Navbar = () => {
             <h1>⛩ The Dojo Blog 🤺 </h1>
             <div className="links">
                 <Link to="/">Home</Link>
+                <Link to="/planets">Planets</Link>
+                <Link to="/people">People</Link>
+                <Link to="/superheroes">SuperHeroes</Link>
+                <Link to="/rqsuperheroes">RQSuperHeroes</Link>
                 <Link to="/blogs/create">New Blog</Link>
                 <Link to="/login" 
                 style={{
