@@ -1,18 +1,19 @@
-import {useQuery, useMutation } from "react-query"
-import axios from "axios"
+import {useQuery, useMutation, useQueryClient } from "react-query"
+// import axios from "axios"
+import { request } from "../components/utils/axios.utils"
 
 const fetchSuperHeroes = ()=>{
-    return  axios.get('http://localhost:4000/superheroes')
+    // return  axios.get('http://localhost:4000/superheroes')
+    return request({url: "/superheroes"})
 }
 
-
 const addSuperHeroes=(newHero)=>{
-    return  axios.post('http://localhost:4000/superheroes',newHero)
+    // return  axios.post('http://localhost:4000/superheroes',newHero)
+    return request({url: "/superheroes", method: "post", data: newHero})
 
 }
 
 function useSuperHeroesData(onSuccess,onError) {
-
     return useQuery(
         "super-heroes",
         fetchSuperHeroes,
@@ -25,7 +26,31 @@ function useSuperHeroesData(onSuccess,onError) {
 
 
 export const useAddSuperHeroData =()=>{
-    return useMutation(addSuperHeroes)
+    const queryClient= useQueryClient()
+    return useMutation(addSuperHeroes,{
+        // onSuccess:(data)=>{
+        //     // queryClient.invalidateQueries("super-heroes") //-> dizemos que a lista está desatulizada-> faz refetch da lista toda
+        //     queryClient.setQueryData("super-heroes",(oldquerydata)=>{
+        //         return {...oldquerydata, data: [...oldquerydata.data, data.data]}
+        //     } )
+        // }
+        onMutate: async (newHero)=>{
+            await queryClient.cancelQueries("super-heroes")
+            const previousHeroData = queryClient.getQueryData("super-heroes")
+            queryClient.setQueryData("super-heroes",(oldquerydata)=>{
+                return {...oldquerydata, data: [...oldquerydata.data, {id:oldquerydata?.data?.length +1., ... newHero}]}
+            } )
+            return{
+                previousHeroData,
+            }
+        },
+        onError:(_error,_hero, context )=>{
+            queryClient.setQueryData("super-heroes", context.previousHeroData)
+        },
+        onSettled:()=>{
+            queryClient.invalidateQueries("super-heroes") 
+        },
+    })
 }
 
 export default useSuperHeroesData

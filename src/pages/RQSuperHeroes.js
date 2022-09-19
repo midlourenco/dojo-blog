@@ -1,12 +1,13 @@
 import { useState } from "react"
 import {useQuery} from "react-query"
-import axios from "axios"
+// import axios from "axios"
+import { request } from "../components/utils/axios.utils"
 import useSuperHeroData, {useAddSuperHeroData} from "../hooks/useSuperHeroesData"
 import { Link } from "react-router-dom"
 
-const fetchSuperHeroes = ()=>{
-    return  axios.get('http://localhost:4000/superheroes')
-}
+// const fetchSuperHeroes = ()=>{
+//     return  axios.get('http://localhost:4000/superheroes')
+// }
 
 function RQSuperHeros() {
     const [heroName, setHeroName]=useState("")
@@ -24,8 +25,8 @@ function RQSuperHeros() {
     const {mutate: addHero, isLoading: isLoadingOnAdding, isError: isErrorOnAdding,error: errorOnAdding} = useAddSuperHeroData()
 
     const handleAddHeroClick=(e)=>{
-    //  e.preventDefault();
-    console.log(heroName, heroEgo )
+     e.preventDefault();
+    // console.log(heroName, heroEgo )
     const newHero = {name: heroName, alterEgo: heroEgo}
     addHero(newHero)
     setHeroName("")
