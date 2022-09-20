@@ -239,9 +239,9 @@ body{
   display: flex;
   justify-content: space-between;
 }
-.input-container label{
-  /* color: #f1356d; */
-}
+/* .input-container label{
+    color: #f1356d; 
+} */
 
 .input {
   border: 1px solid #f1356d;
@@ -268,4 +268,11 @@ body{
 .add-btn:disabled{
   background:lightpink;
   cursor:not-allowed;
+}
+
+.refresh-btn{
+  background-color: transparent;
+  border: none;
+  width: 50px;
+  cursor: pointer;
 }

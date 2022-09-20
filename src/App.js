@@ -12,7 +12,7 @@ import Planets from "./pages/Planets";
 import Footer from "./components/Footer";
 import People from "./pages/People";
 import Superheroes from "./pages/Superheroes";
-import RQSuperHeroes from "./pages/RQSuperHeroes";
+import RQSuperHeroes from "./pages/RQSuperHeroes/RQSuperHeroes";
 import RQSuperHeroDetails from "./pages/RQSuperHeroDetails";
 import ParallelQueriesPage from "./pages/tutorial_options/ParallelQueriesPage";
 import DynamicParallel from "./pages/tutorial_options/DynamicParallel";
