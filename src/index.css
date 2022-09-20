@@ -200,27 +200,72 @@ body{
 }
 #remove-filter-btn  {
   background: #f1356d;
+  border: 1px solid #f1356d;
   color: #fff;
-  border: 0;
   padding: 6px 10px;
   border-radius: 16px;
   cursor: pointer;
-  margin: 0 0 0 10px;
+  margin: 0 0 10px 10px;
   font-size: 12px;
 }
 
-.todo-footer {
+#remove-filter-btn:disabled{
+  background:lightpink;
+  cursor:not-allowed;
+}
+
+.list-footer {
   display: flex;
   justify-content: space-between;
 }
 
-.todo-footer p {
+.list-footer p {
   font-weight: 600;
   color: grey
 }
 
-.todo-footer a {
+.list-footer a {
   font-weight: 600;
   color: grey;
   text-decoration: none;
+}
+
+.input-container {
+  background-color: white;
+  margin: 30px 0;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  /* box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.329); */
+  display: flex;
+  justify-content: space-between;
+}
+.input-container label{
+  /* color: #f1356d; */
+}
+
+.input {
+  border: 1px solid #f1356d;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin-right: 10px;
+  width: 90%
+}
+
+.input:focus {
+  outline: none;
+}
+
+.add-btn {
+  border: none;
+  padding: 0.3rem 2rem;
+  border-radius: 0.2rem;
+  background-color:#f1356d;
+  color: white;
+  font-weight: 900;
+}
+
+.add-btn:disabled{
+  background:lightpink;
+  cursor:not-allowed;
 }

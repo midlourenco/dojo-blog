@@ -38,7 +38,11 @@ export const useAddSuperHeroData =()=>{
             await queryClient.cancelQueries("super-heroes")
             const previousHeroData = queryClient.getQueryData("super-heroes")
             queryClient.setQueryData("super-heroes",(oldquerydata)=>{
-                return {...oldquerydata, data: [...oldquerydata.data, {id:oldquerydata?.data?.length +1., ... newHero}]}
+                // console.log(oldquerydata)
+                if(!oldquerydata){
+                    return  {data: [ {id: 1, ... newHero}]}
+                }
+                return {...oldquerydata, data: [...oldquerydata?.data, {id:oldquerydata?.data?.length +1, ... newHero}]}
             } )
             return{
                 previousHeroData,

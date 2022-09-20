@@ -7,21 +7,21 @@ import Header from "../Header"
 //****GETBY********* */
 
 
+describe("Header",()=>{
+  it('should render same text passed into title prop', async() => {
+    render(<Header title="My Header"/>); // which component we want to test
+    const headingElement = screen.getByText(/my header/i); // which element in that element we want to test
+    //screen procura nos elementos do DOM algum elemento que tem no texto dentro "learn react"
 
-it('should render same text passed into title prop', async() => {
-  render(<Header title="My Header"/>); // which component we want to test
-  const headingElement = screen.getByText(/my header/i); // which element in that element we want to test
-  //screen procura nos elementos do DOM algum elemento que tem no texto dentro "learn react"
+    expect(headingElement).toBeInTheDocument();//o que esperamos que aconteça com esse elemento
+  });
+})
 
-  expect(headingElement).toBeInTheDocument();//o que esperamos que aconteça com esse elemento
-});
-
-
-// // it('should exist only one heading', async() => {
-// //     render(<Header title="My Header"/>); 
-// //     const headingElement = screen.getByRole("heading");  //se houver mais do que heading este teste vai falhar
-// //     expect(headingElement).toBeInTheDocument();
-// //   });
+// it('should exist only one heading', async() => {
+//     render(<Header title="My Header"/>); 
+//     const headingElement = screen.getByRole("heading");  //se houver mais do que heading este teste vai falhar
+//     expect(headingElement).toBeInTheDocument();
+//   });
 
 
 // it('should exist one heading which render same text passed into title prop', async () => {

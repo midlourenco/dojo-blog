@@ -19,7 +19,13 @@ const BlogList = ({blogs,title,...props}) => {
                 <h5>Filter by author: </h5>
                 <button onClick={()=>setBlogsFiltered(blogs.filter((blog)=>blog.author==="mario"))}>Mario</button>
                 <button onClick={()=>setBlogsFiltered(blogs.filter((blog)=>blog.author==="yoshi"))}>Yoshi</button>
-                <button id="remove-filter-btn"onClick={()=>setBlogsFiltered(blogs)}> Remover filtro</button>
+                <button 
+                id="remove-filter-btn"
+                disabled={blogs.length===blogsFilterd.length}
+                onClick={()=>setBlogsFiltered(blogs)}
+                > 
+                  Remover filtro
+                </button>
               </div>
             }
             {blogsFilterd.map((blog)=>(

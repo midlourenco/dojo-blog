@@ -15,6 +15,8 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 //https://www.youtube.com/watch?v=x1rQ61otgtU
 //•	https://www.youtube.com/watch?v=VtWkSCZX0Ec&list=PLC3  y8-rFHvwjTELCrPrcZlo6blLBUspd2
 
+//***React testing library */
+//https://www.youtube.com/watch?v=3ugQRXRToFA&list=PL4cUxeGkcC9gm4_-5UsNmLqMosM-dzuvQ&index=8
 
 const queryClient = new QueryClient()
 
