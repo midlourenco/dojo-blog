@@ -1,6 +1,21 @@
-# Complete-React-Tutorial
+# Blog website
 
-All course files for the Complete React Tutorial on the Net Ninja YouTube channel.
-https://www.youtube.com/watch?v=NbTrGcz4DW8&list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d&index=6
+Expermenting different react tools based in the following react tutorials.
 
+
+## React
+* Net Ninja:
+https://www.youtube.com/watch?v=j942wKiXFu8
 https://github.com/iamshaunjp/Complete-React-Tutorial
+
+## React query
+* Net Ninja:
+https://www.youtube.com/watch?v=x1rQ61otgtU
+
+* Codevolution:
+https://www.youtube.com/watch?v=VtWkSCZX0Ec&list=PLC3y8-rFHvwjTELCrPrcZlo6blLBUspd2
+
+## React testing library
+* Net Ninja:
+https://www.youtube.com/watch?v=3ugQRXRToFA&list=PL4cUxeGkcC9gm4_-5UsNmLqMosM-dzuvQ&index=8
+
