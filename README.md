@@ -1,6 +1,6 @@
 # Blog website
 
-Expermenting different react tools based in the following react tutorials.
+Trying different react tools react tools based on the following react tutorials.
 
 
 ## React
