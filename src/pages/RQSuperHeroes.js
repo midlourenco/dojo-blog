@@ -1,7 +1,7 @@
 import { useState } from "react"
 import {useQuery} from "react-query"
 // import axios from "axios"
-import { request } from "../components/utils/axios.utils"
+import { request } from "../utils/axios.utils"
 import useSuperHeroData, {useAddSuperHeroData} from "../hooks/useSuperHeroesData"
 import { Link } from "react-router-dom"
 
@@ -42,17 +42,17 @@ function RQSuperHeros() {
 
     console.log({isLoading, isFetching })
     return (
-        <>
+        <div>
             <h2>RQSuperHeroes</h2>
             <div> 
-                <label for="heroName">Hero name:</label>
+                <label htmlFor="heroName">Hero name:</label>
                 <input 
                 id="heroName" 
                 type="text"
                 value={heroName}
                 onChange={(e)=>setHeroName(e.target.value)}
                 />
-                <label for="heroSuperEgo">Hero super ego:</label>
+                <label htmlFor="heroSuperEgo">Hero super ego:</label>
                 <input 
                 id="heroSuperEgo" 
                 type="text"
@@ -77,7 +77,7 @@ function RQSuperHeros() {
             {/* {data.map((heroName)=>{
                 return <div key={heroName}>{heroName}</div>
             })} */}
-        </>
+        </div>
   )
 }
 

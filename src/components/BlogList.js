@@ -1,5 +1,7 @@
 import { useState } from "react";
 import {Link} from "react-router-dom"
+import Header from "./Header/Header";
+import ListFooter from "./ListFooter/ListFooter";
 
 const BlogList = ({blogs,title,...props}) => {
 
@@ -7,8 +9,11 @@ const BlogList = ({blogs,title,...props}) => {
 
 
     return ( 
+      <>
+      <div className="blog-list-container">
         <div className="blog-list">
-            <h2>{title}</h2>
+            {/* <h2>{title}</h2> */}
+            <Header title={title} />
             {blogs &&
               <div className="list-filter-options">
                 <h5>Filter by author: </h5>
@@ -27,6 +32,10 @@ const BlogList = ({blogs,title,...props}) => {
               </div>  
             ))} 
         </div>
+        
+        <ListFooter numberOfResults={blogsFilterd.length}/>
+        </div>
+        </>
      );
 }
  

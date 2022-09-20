@@ -45,6 +45,8 @@ const People = () => {
             {status==="error" && <p style={{color:"red"}}>Error fetching data</p>}
             {status==="success"  && 
             <>
+            <PeopleList list={data.results} title={"All People"}  /> 
+
             <button 
             // onClick={() => fetchPreviousPage()} 
             // disabled={!hasPreviousPage}
@@ -65,7 +67,6 @@ const People = () => {
             >
                 Next page
             </button>
-            <PeopleList list={data.results} title={"All People"}  /> 
             </>
             }
         </div>

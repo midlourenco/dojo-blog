@@ -1,12 +1,14 @@
 import { useState } from "react";
 import {Link} from "react-router-dom"
+import Header from "./Header/Header";
 
 
 const PlanetsList = ({list, title,...props}) => {
 
     return ( 
         <div className="planet-list">
-            <h2>Planets 🪐 </h2>
+          <Header title="Planets  🪐 " />
+            {/* <h2>Planets 🪐 </h2> */}
             {list && list.map((planet)=>(
               <div className="planet-preview" key={planet.created}>
                 <Link to={"planets/"+planet.created}>

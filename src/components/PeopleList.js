@@ -1,12 +1,14 @@
 import { useState } from "react";
 import {Link} from "react-router-dom"
+import Header from "./Header/Header";
 
 
 const PeopleList = ({list, title,...props}) => {
 
     return ( 
         <div className="person-list">
-            <h2>People 🧍‍♂️🧍‍♀️ </h2>
+            {/* <h2>People 🧍‍♂️🧍‍♀️ </h2> */}
+            <Header title="People  🧍‍♂️🧍‍♀️ " />
             {list && list.map((person)=>(
               <div className="people-preview" key={person.created}>
                 <Link to={"people/"+person.created}>

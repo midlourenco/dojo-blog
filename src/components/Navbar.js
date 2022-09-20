@@ -15,7 +15,7 @@ const Navbar = () => {
                 style={{
                     color:"white",
                     backgroundColor:"#f1356d",
-                    borderRadius: "8px"
+                    borderRadius: "8px",
                 }}>
                     Entrar
                 </Link>

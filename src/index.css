@@ -168,6 +168,18 @@ body{
   font-size: 16px;
 }
 
+.blog-list-container {
+  background-color: white;
+  margin-top: 2rem;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.329);
+  /* height: 50vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 
 .list-filter-options{
   display: flex;
@@ -195,4 +207,20 @@ body{
   cursor: pointer;
   margin: 0 0 0 10px;
   font-size: 12px;
+}
+
+.todo-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-footer p {
+  font-weight: 600;
+  color: grey
+}
+
+.todo-footer a {
+  font-weight: 600;
+  color: grey;
+  text-decoration: none;
 }
