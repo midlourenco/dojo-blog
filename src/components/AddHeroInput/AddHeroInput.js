@@ -9,7 +9,7 @@ function AddHeroInput() {
   const {mutate: addHero, isLoading: isLoadingOnAdding, isError: isErrorOnAdding,error: errorOnAdding} = useAddSuperHeroData()
 
   const handleAddHeroClick=(e)=>{
-      // e.preventDefault();
+      e.preventDefault();
       // console.log(heroName, heroEgo )
       const newHero = {name: heroName, alterEgo: heroEgo}
       addHero(newHero)
@@ -20,7 +20,7 @@ function AddHeroInput() {
 
 
   return (
-    <div className="input-container"> 
+    <form className="input-container"> 
       <div>
         <label htmlFor="heroName">Hero name:</label>
         <input 
@@ -47,6 +47,7 @@ function AddHeroInput() {
       />
       </div>
       <button
+      type="submit"
       className="add-btn"
       onClick={(e)=>handleAddHeroClick(e)} 
       disabled={isLoadingOnAdding || (!heroName.trim() || !heroEgo.trim())}
@@ -56,7 +57,7 @@ function AddHeroInput() {
 
       {isErrorOnAdding && <p style={{color:"red"}}>{errorOnAdding.message}</p>}
 
-    </div>
+    </form>
   )
 }
 

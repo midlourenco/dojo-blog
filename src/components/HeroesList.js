@@ -6,7 +6,7 @@ function HeroesList({list,...props}) {
     <div>
     {list?.data.map((hero)=>{
         return (
-            <div className="blog-preview" key={hero.id} data-testid="hero-cointainer">
+            <div className="blog-preview" key={hero.id} data-testid={`hero-cointainer-${hero.id}`}>
                 <Link to={`/rqsuperheroes/${hero.id}`} >
                     {hero.name}
                 </Link>

@@ -14,14 +14,14 @@ const MockRQSuperHeroes = ()=>{
         <Router>
             <RQSuperHeroes />
         </Router>
-    </QueryClientProvider>
+     </QueryClientProvider>
     )
 }
 
-const addHero = (heroes) =>{
-    const inputNameElement = screen.getByPlaceholderText(/add hero name here/i); 
-    const inputAlterEgoElement = screen.getByPlaceholderText(/add hero alter ego here/i); 
-    const buttonElement = screen.getByRole("button", {name:/Add hero/i})
+const addHero = async (heroes) =>{
+    const inputNameElement = await screen.findByPlaceholderText(/add hero name here/i); 
+    const inputAlterEgoElement = await screen.findByPlaceholderText(/add hero alter ego here/i); 
+    const buttonElement =await screen.findByRole("button", {name:/Add hero/i})
 
     // const loadingElement = screen.getByText(/loading.../i); 
 
@@ -34,38 +34,56 @@ const addHero = (heroes) =>{
         fireEvent.change(inputNameElement, {target:{value: hero.name}})
         fireEvent.change(inputAlterEgoElement, {target:{value: hero.ego}})
         fireEvent.click(buttonElement)
+        console.log("passei aqui")
         await waitForElementToBeRemoved(()=>screen.getByText(/Please, wait while adding new hero/i))
-        await waitForElementToBeRemoved(()=>screen.getByText("Loading..."))
-
+        //await waitForElementToBeRemoved(()=>screen.getByText("Loading..."))
     });
 
 }
 
 describe("RQSuperHeroes",()=>{
-  it('should render same text passed into title prop', async() => {
-    render(<MockRQSuperHeroes />); 
-    await waitForElementToBeRemoved(()=>screen.getByText("Loading..."))
 
-    const inputNameElement = screen.getByPlaceholderText(/add hero name here/i); 
-    const inputAlterEgoElement = screen.getByPlaceholderText(/add hero alter ego here/i); 
-    const buttonElement = screen.getByRole("button", {name:/Add hero/i})
+    beforeEach(()=>{
+        console.log("RUNNING BEFORE EACH TEST")
+    })
 
-    fireEvent.change(inputNameElement, {target:{value:"fantastic hero from test"}})
-    fireEvent.change(inputAlterEgoElement, {target:{value:"Ego fantastic"}})
-    fireEvent.click(buttonElement)
-    await waitForElementToBeRemoved(()=>screen.getByText(/Please, wait while adding new hero/i))
-    await waitForElementToBeRemoved(()=>screen.getByText("Loading..."))
+    beforeAll(()=>{
+        console.log("RUNNING ONCE BEFORE ALL TEST")
+    })
 
-    // addHero([{name:"fantastic hero from test", ego:"ego hero from test"}])
+    afterEach(()=>{
+        console.log("RUNNING AFTER EACH TEST")
+    })
+
+    afterAll(()=>{
+        console.log("RUNNING ONCE AFTER ALL TEST")
+    })
+
+  it('should render one new element', async() => {
+//     render(<MockRQSuperHeroes />); 
+//     // await waitForElementToBeRemoved(()=>screen.getByText("Loading..."))
+
+//     const inputNameElement = await screen.findByPlaceholderText(/add hero name here/i); 
+//     const inputAlterEgoElement =await screen.findByPlaceholderText(/add hero alter ego here/i); 
+//     const buttonElement = await screen.findByRole("button", {name:/Add hero/i})
+
+//     fireEvent.change(inputNameElement, {target:{value:"fantastic hero from test"}})
+//     fireEvent.change(inputAlterEgoElement, {target:{value:"Ego fantastic"}})
+//     fireEvent.click(buttonElement)
+
+//     // await waitForElementToBeRemoved(()=>screen.getByText(/Please, wait while adding new hero/i))
+//     // await waitForElementToBeRemoved(()=>screen.getByText("Loading..."))
+
+//     // addHero([{name:"fantastic hero from test", ego:"ego hero from test"}])
     
   
  
-    const divElements = screen.queryAllByText(/fantastic hero from test/i)
+//     const divElements = screen.queryAllByText(/fantastic hero from test/i)
 
-    expect(divElements.length).toBeGreaterThan(0);
-  });
+//     expect(divElements.length).toBeGreaterThan(0);
+   });
 
-//   it('should render multiple elements', async() => {
+//   it('should render multiple new elements', async() => {
 //     render(<MockRQSuperHeroes />); 
 //     // await waitForElementToBeRemoved(()=>screen.getByText("Loading..."))
 
@@ -75,12 +93,12 @@ describe("RQSuperHeroes",()=>{
 //         {name: "hero2", ego: "ego2"},
 //         {name: "hero3", ego: "ego3"},
 //     ])
-//     await waitForElementToBeRemoved(()=>screen.getByText("Loading..."))
+//    // await waitForElementToBeRemoved(()=>screen.getByText("Loading..."))
 
 
-//     const divElements = screen.getAllByTestId("hero-cointainer")
+//     const divElements = await screen.findAllByTestId(/hero-cointainer/i)
 
-//     expect(divElements.length).toBe(11);
+//     expect(divElements.length).toBe(15);
 //   });
 
 

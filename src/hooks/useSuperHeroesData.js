@@ -34,6 +34,7 @@ export const useAddSuperHeroData =()=>{
         //         return {...oldquerydata, data: [...oldquerydata.data, data.data]}
         //     } )
         // }
+        // refetchOnWindowFocus:true,
         onMutate: async (newHero)=>{
             await queryClient.cancelQueries("super-heroes")
             const previousHeroData = queryClient.getQueryData("super-heroes")
