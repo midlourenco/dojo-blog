@@ -2,6 +2,22 @@ import { useState } from "react";
 import {Link} from "react-router-dom"
 import Header from "./Header/Header";
 import ListFooter from "./ListFooter/ListFooter";
+import styled from "@emotion/styled"
+
+
+const Badge = styled.span`
+  background-color: ${props=>props.variantColor? props.variantColor : "grey" } ;
+  color: ${props=>props.color?props.color: "#fff" };
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  `;
+
+const PrimaryBadge = styled(Badge)`
+  background-color: #ddd;
+  color:#444;
+`
 
 const BlogList = ({blogs,title,...props}) => {
 
@@ -10,9 +26,16 @@ const BlogList = ({blogs,title,...props}) => {
 
     return ( 
       <>
+        <Badge>@emotion default componente</Badge>
+        <PrimaryBadge>@emotion overwriting settings</PrimaryBadge>
+        <Badge variantColor="green">@emotion green</Badge>
+        <Badge variantColor="red">@emotion red</Badge>
+        <Badge variantColor="yellow"  color={"#444"}>@emotion yellow</Badge>
+
       <div className="blog-list-container">
         <div className="blog-list">
             {/* <h2>{title}</h2> */}
+          
             <Header title={title} />
             {blogs &&
               <div className="list-filter-options">
